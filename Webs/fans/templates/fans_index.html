@@ -1,0 +1,29 @@
+{% extends 'fans_base.html' %}
+{% load static %}
+{% block fans_content %}
+    <h1 align="center">Taiwanese Super Idols of UK</h1>
+    
+    <div class="container" align="center">
+        <h4>London's strongest men's group in history</h4>
+    </div>
+
+    <table class="art container">
+        <thead align="center">
+            <th>Miller</th>
+            <th>Oscar</th>
+            <th>Sam</th>
+            <th>William</th>
+            <th>Kobe</th>
+            <th>Tim</th>
+        </thead>
+        <tr align="center">
+            <td id="Miller"><a href="{% url 'fans:miller' %}"><img src="{% static 'Webs/fans/media/miller.jpg' %}" alt=""></a></td>
+            <td id="Oscar"><a href="{% url 'fans:oscar' %}"><img src="{% static 'Webs/fans/media/oscar.jpg' %}" alt=""></a></td>
+            <td id="Sam"><a href="{% url 'fans:sam' %}"><img src="{% static 'Webs/fans/media/sam.jpg' %}" alt=""></a></td>
+            <td id="William"><a href="{% url 'fans:william' %}"><img src="{% static 'Webs/fans/media/william.jpg' %}" alt=""></a></td>
+            <td id="Kobe"><a href="{% url 'fans:kobe' %}"><img src="{% static 'Webs/fans/media/kobe.jpg' %}" alt=""></a></td>
+            <td id="Tim"><a href="{% url 'fans:tim' %}"><img src="{% static 'Webs/fans/media/tim.jpg' %}" alt=""></a></td>
+        </thead>
+    </table>
+ 
+{% endblock fans_content %}
