@@ -1,0 +1,12 @@
+{% extends 'blog/article_list.html' %}
+{% block content %}
+    <div class='container'>
+    <form class="article-form" method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="save btn btn-default">Save</button>
+    </form>
+
+    <script>var editor = new MediumEditor('.editable');</script>
+    </div>
+{% endblock content %}

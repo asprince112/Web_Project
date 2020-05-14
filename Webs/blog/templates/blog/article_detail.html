@@ -1,0 +1,21 @@
+{% extends 'blog/article_list.html' %}
+
+{% block content %}
+    <h1 class="posttitle loader">{{ article.title }}</h1>
+    {% if article.publish_date %}
+        <div class="date postdate">
+        {{ article.publish_date }}
+        </div>
+    {% else %}
+        <a class="btn btn-default" href="{% url 'blog:article_publish' pk=article.pk %}">Publish</a>
+    {% endif %}
+
+    <p class="postcontent">{{ article.text|safe|linebreaksbr }}</p>
+
+    {% if user.is_authenticated %}
+        <a class="btn btn-primary" href="{% url 'blog:article_edit' pk=article.pk %}">Edit</a>
+        <a class="btn btn-primary" href="{% url 'blog:article_remove' pk=article.pk %}">Remove</a>
+
+    {% endif %}
+    
+{% endblock content %}
