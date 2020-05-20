@@ -42,8 +42,10 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
+    'django_countries',
+    'crispy_forms',
 
-    'profiles'
+    'profiles',
 ]
 
 MIDDLEWARE = [
@@ -142,3 +144,5 @@ AUTHENTICATION_BACKENDS = (
 )
 
 SITE_ID = 1
+
+STRIPE_SECRET_KEY = "sk_test_4eC39HqLyjWDarjtT1zdp7dc"
