@@ -43,11 +43,7 @@ class Item(models.Model):
         return reverse("profiles:add-to-cart", kwargs={"slug": self.slug})
     
     def get_remove_from_cart_url(self):
-        return reverse("profiles:remove-from-cart", kwargs={"slug": self.slug})
-
-
-
-    
+        return reverse("profiles:remove-from-cart", kwargs={"slug": self.slug}) 
 
 
 class OrderItem(models.Model):

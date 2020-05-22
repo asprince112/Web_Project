@@ -1,31 +1,26 @@
 {% extends 'base.html' %}
   
-  
-  
-  {% block content %}
-  
-  
+{% block content %}
 
-  <br>
-  <br>
-  <!--Main layout-->
-  <main>
-    <div class="container">
+<br>
+<br>
+<main>
+  <div class="container">
     <div class="table-responsive text-nowrap">
-    <h2>Order Summary</h2>
-    <table class="table">
+      <h2>Order Summary</h2>
+      <table class="table">
         <thead>
-        <tr>
-            <th scope="col">#</th>
-            <th scope="col">Item title</th>
-            <th scope="col">Price</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Total Price</th>
-        </tr>
+          <tr>
+              <th scope="col">#</th>
+              <th scope="col">Item title</th>
+              <th scope="col">Price</th>
+              <th scope="col">Quantity</th>
+              <th scope="col">Total Price</th>
+          </tr>
         </thead>
         <tbody>
         {% for order_item in object.items.all %}
-        <tr>
+          <tr>
             <th scope="row">{{ forloop.counter }}</th>
             <td>{{ order_item.item.title }}</td>
             <td>{% if order_item.item.discount_price %}
@@ -47,84 +42,38 @@
                 {% endif %}
                 <a href="{% url 'profiles:remove-from-cart' order_item.item.slug %}"><i class="fas fa-trash-alt float-right"></i></a>
             </td>
-        </tr>
+          </tr>
         {% empty%}
-        <tr>
-          <td colspan="5">Your cart is empty</td>
-        </tr>
-        <td colspan="5">
-            <a class="btn btn-primary float-right" href="/">Countinue shooping</a>
+          <tr>
+            <td colspan="5">Your cart is empty</td>
+          </tr>
+          <td colspan="5">
+              <a class="btn btn-primary float-right" href="/">Countinue shooping</a>
           </td>
         {% endfor %}
         {% if object.coupon %}
-        <tr>
-          <td colspan="4"><b>Coupon</b></td>
-          <td><b>-£{{ object.coupon.amount }}</b></td>
-        </tr>
+          <tr>
+            <td colspan="4"><b>Coupon</b></td>
+            <td><b>-£{{ object.coupon.amount }}</b></td>
+          </tr>
         {% endif %}
         {% if object.get_total %}
-        <tr>
-          <td colspan="4"><b>Order Total</b></td>
-          <td><b>£{{ object.get_total }}</b></td>
-        </tr>
-        <tr>
-          <td colspan="5">
-            <a class="btn btn-warning float-right ml-2" href="{% url 'profiles:checkout' %}">Proceed to checkout</a>
-            <a class="btn btn-primary float-right" href="/">Countinue shooping</a>
-          </td>
-        </tr>
+          <tr>
+            <td colspan="4"><b>Order Total</b></td>
+            <td><b>£{{ object.get_total }}</b></td>
+          </tr>
+          <tr>
+            <td colspan="5">
+              <a class="btn btn-warning float-right ml-2" href="{% url 'profiles:checkout' %}">Proceed to checkout</a>
+              <a class="btn btn-primary float-right" href="/">Countinue shooping</a>
+            </td>
+          </tr>
         {% endif %}
         </tbody>
-    </table>
-
+      </table>
     </div>
+  </div>
+</main>
 
-
-
-    </div>
-  </main>
-  <!--Main layout-->
-  
-  <!--Footer-->
-  <footer class="page-footer text-center font-small mt-4 wow fadeIn">
-
-
-    <hr class="my-4">
-
-    <!-- Social icons -->
-    <div class="pb-4">
-      <a href="https://www.facebook.com/mdbootstrap" target="_blank">
-        <i class="fab fa-facebook-f mr-3"></i>
-      </a>
-
-      <a href="https://twitter.com/MDBootstrap" target="_blank">
-        <i class="fab fa-twitter mr-3"></i>
-      </a>
-
-      <a href="https://www.youtube.com/watch?v=7MUISDJ5ZZ4" target="_blank">
-        <i class="fab fa-youtube mr-3"></i>
-      </a>
-
-      <a href="https://plus.google.com/u/0/b/107863090883699620484" target="_blank">
-        <i class="fab fa-google-plus-g mr-3"></i>
-      </a>
-
-      <a href="https://dribbble.com/mdbootstrap" target="_blank">
-        <i class="fab fa-dribbble mr-3"></i>
-      </a>
-
-      <a href="https://pinterest.com/mdbootstrap" target="_blank">
-        <i class="fab fa-pinterest mr-3"></i>
-      </a>
-
-      <a href="https://github.com/mdbootstrap/bootstrap-material-design" target="_blank">
-        <i class="fab fa-github mr-3"></i>
-      </a>
-
-      <a href="http://codepen.io/mdbootstrap/" target="_blank">
-        <i class="fab fa-codepen mr-3"></i>
-      </a>
-    </div>
-    <!-- Social icons -->
-  {% endblock content %}
+{% endblock content %}
 
