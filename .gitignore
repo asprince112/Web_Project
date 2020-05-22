@@ -1,0 +1,6 @@
+eCommerce/profiles/__pycache__/
+eCommerce/profiles/migrations/
+eCommerce/db.sqlite3
+eCommerce/media_root
+eCommerce/static
+*pyc
